@@ -3,7 +3,7 @@ import {UserContextProvider} from "./UserContext";
 import Routes from "./Routes";
 
 function App() {
-  axios.defaults.baseURL = 'mern-chat-api-one.vercel.app';
+  axios.defaults.baseURL = 'https://mern-chat-api-one.vercel.app';
   axios.defaults.withCredentials = true;
   return (
     <UserContextProvider>
