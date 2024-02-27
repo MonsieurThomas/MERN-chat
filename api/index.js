@@ -23,9 +23,11 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: "https://mern-chat-client-nu.vercel.app",
-  methods: ["POST", "GET"],
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
   credentials: true,
+  optionsSuccessStatus: 200
 }));
 
 async function getUserDataFromRequest(req) {
@@ -42,6 +44,8 @@ async function getUserDataFromRequest(req) {
   });
 
 }
+app.options('*', cors());
+
 
 app.get('/test', (req,res) => {
   res.json('test ok');
