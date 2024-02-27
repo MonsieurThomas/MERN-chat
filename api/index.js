@@ -19,6 +19,7 @@ console.log("\n\n This jwtSecret = ", jwtSecret, "\n\n")
 const bcryptSalt = bcrypt.genSaltSync(10);
 
 const app = express();
+app.options('*', cors());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(express.json());
 app.use(cookieParser());
@@ -44,7 +45,7 @@ async function getUserDataFromRequest(req) {
   });
 
 }
-app.options('*', cors());
+
 
 
 app.get('/test', (req,res) => {
